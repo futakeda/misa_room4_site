@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>検索結果</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>検索結果</h1>
+        <div class="search-conditions">
+            <h2>検索条件</h2>
+            <p><strong>地域:</strong> <span id="region"></span></p>
+            <p><strong>期間:</strong> <span id="period"></span></p>
+            <p><strong>アラート表示閾値:</strong> <span id="threshold"></span>%</p>
+        </div>
+
+        <div class="results-section">
+            <h2>インフルエンザ発生件数</h2>
+            <div id="results-table"></div>
+            <div id="warning-icon"></div>
+        </div>
+
+        <div class="closure-section">
+            <h2>学級閉鎖等の状況</h2>
+            <div id="closure-table"></div>
+        </div>
+
+        <div class="national-summary-section">
+            <h2>全国の休業施設数内訳</h2>
+            <div id="national-summary-table"></div>
+        </div>
+
+        <div class="graph-section">
+            <h2>発生件数の推移</h2>
+            <div id="graph"></div>
+        </div>
+
+        <div class="comment-section">
+            <h2>今後の傾向</h2>
+            <p id="comment"></p>
+        </div>
+
+        <a href="index.html" class="back-link">検索画面に戻る</a>
+    </div>
+
+    <script src="results.js"></script>
+</body>
+</html>

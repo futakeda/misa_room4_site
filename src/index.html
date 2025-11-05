@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>インフルエンザ情報検索</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>インフルエンザ情報検索</h1>
+        <form action="results.html" method="GET">
+            <div class="form-group">
+                <label for="region">地域 (都道府県)</label>
+                <input type="text" id="region" name="region" placeholder="例: 東京都" required>
+            </div>
+            <div class="form-group">
+                <label for="period">期間 (週を選択)</label>
+                <select id="period" name="period">
+                    <option value="第43週">第43週 (10/20～10/26)</option>
+                    <option value="第42週">第42週 (10/13～10/19)</option>
+                    <option value="第41週">第41週 (10/06～10/12)</option>
+                    <option value="第40週">第40週 (09/29～10/05)</option>
+                    <option value="第39週">第39週 (09/22～09/28)</option>
+                    <option value="第38週">第38週 (09/15～09/21)</option>
+                    <option value="第37週">第37週 (09/08～09/14)</option>
+                    <option value="第36週">第36週 (09/01～09/07)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="threshold">アラート表示閾値 (増加率 %)</label>
+                <input type="number" id="threshold" name="threshold" value="20" min="0">
+            </div>
+            <button type="submit" class="btn-submit">検索</button>
+        </form>
+    </div>
+</body>
+</html>
