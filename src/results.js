@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '北海道': {'第43週': {school:1, grade:6, class:17}, '第42週': {school:1, grade:1, class:6}, '第41週': {school:1, grade:0, class:4}, '第40週': {school:0, grade:0, class:1}, '第39週': {school:0, grade:0, class:3}, '第38週': {school:0, grade:0, class:0}, '第37週': {school:0, grade:0, class:1}, '第36週': {school:0, grade:1, class:1}},
         '東京都': {'第43週': {school:2, grade:28, class:128}, '第42週': {school:4, grade:11, class:56}, '第41週': {school:2, grade:7, class:43}, '第40週': {school:0, grade:8, class:31}, '第39週': {school:1, grade:3, class:17}, '第38週': {school:0, grade:4, class:8}, '第37週': {school:1, grade:1, class:3}, '第36週': {school:0, grade:0, class:1}},
         '大阪府': {'第43週': {school:0, grade:14, class:58}, '第42週': {school:1, grade:3, class:18}, '第41週': {school:0, grade:2, class:20}, '第40週': {school:2, grade:3, class:18}, '第39週': {school:0, grade:1, class:13}, '第38週': {school:0, grade:0, class:12}, '第37週': {school:0, grade:2, class:12}, '第36週': {school:0, grade:0, class:3}},
+        '宮城県': {'第43週': {school:2, grade:10, class:12}, '第42週': {school:1, grade:2, class:1}, '第41週': {school:0, grade:1, class:1}, '第40週': {school:0, grade:0, class:0}, '第39週': {school:0, grade:0, class:0}, '第38週': {school:0, grade:0, class:0}, '第37週': {school:0, grade:0, class:0}, '第36週': {school:0, grade:0, class:0}},
     };
     const nationalClosureSummary = {
         '第43週': {nursery:8, kindergarten:36, elementary:573, juniorHigh:300, highSchool:79, other:19},
