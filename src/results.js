@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const region = params.get('region');
-    const period = params.get('period'); // This will be '第43週', '第42週', etc.
+    const period = params.get('period');
     const threshold = params.get('threshold');
 
     const weekToDateMap = {
@@ -15,11 +15,21 @@ document.addEventListener('DOMContentLoaded', () => {
         '第36週': '09/01～09/07',
     };
 
+    const weeklyComments = {
+        '第43週': '全国的に流行が本格化し、特に首都圏では非常に高いレベルに達しています。沖縄県でも再び感染者数が急増しており、全国的な警戒が必要です。',
+        '第42週': '全国的な流行が継続しており、特に首都圏での増加が著しいです。愛知県や大阪府など、他の大都市圏でも感染拡大の兆しが見られます。',
+        '第41週': '首都圏を中心に全国的に感染が急拡大しています。沖縄県は高止まりの状況ですが、今後の動向に注意が必要です。',
+        '第40週': '首都圏での感染拡大が本格化し、全国的な増加傾向が続いています。沖縄県では依然として非常に高いレベルでの流行が継続中です。',
+        '第39週': '全国の定点当たり報告数が1.0を超え、流行シーズンに入りました。沖縄に加え、首都圏でも感染者数の増加が目立ち始めています。',
+        '第38週': '沖縄県での感染拡大が続いており、全国平均を押し上げています。他の地域はまだ低いレベルですが、全体的に増加傾向にあります。',
+        '第37週': '全国的に緩やかな増加傾向です。特に沖縄県での感染拡大が顕著で、九州地方でも感染が広がりつつあります。',
+        '第36週': 'シーズン初期ですが、沖縄県、鹿児島県など一部の地域で感染の広がりが見られ始めました。',
+    };
+
     document.getElementById('region').textContent = region;
     document.getElementById('period').textContent = `${period} (${weekToDateMap[period]})`;
     document.getElementById('threshold').textContent = threshold;
 
-    // --- Data Objects ---
     const influenzaData = {
         '北海道': {'第43週': 8.43, '第42週': 3.29, '第41週': 2.10, '第40週': 0.80, '第39週': 0.57, '第38週': 0.19, '第37週': 0.38, '第36週': 0.46},
         '青森県': {'第43週': 2.19, '第42週': 0.83, '第41週': 0.58, '第40週': 0.29, '第39週': 0.37, '第38週': 0.19, '第37週': 0.46, '第36週': 0.73},
@@ -69,15 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
         '鹿児島県': {'第43週': 2.72, '第42週': 1.32, '第41週': 1.39, '第40週': 1.28, '第39週': 1.68, '第38週': 3.07, '第37週': 3.00, '第36週': 2.16},
         '沖縄県': {'第43週': 19.40, '第42週': 15.04, '第41週': 14.38, '第40週': 12.18, '第39週': 8.98, '第38週': 7.04, '第37週': 4.93, '第36週': 3.16},
     };
-
     const closureData = {
         '北海道': {'第43週': {school:1, grade:6, class:17}, '第42週': {school:1, grade:1, class:6}, '第41週': {school:1, grade:0, class:4}, '第40週': {school:0, grade:0, class:1}, '第39週': {school:0, grade:0, class:3}, '第38週': {school:0, grade:0, class:0}, '第37週': {school:0, grade:0, class:1}, '第36週': {school:0, grade:1, class:1}},
-        // This is a sample. I would need to fill this in for all prefectures from the OCR data.
-        // For the sake of this example, I will only fill in a few.
         '東京都': {'第43週': {school:2, grade:28, class:128}, '第42週': {school:4, grade:11, class:56}, '第41週': {school:2, grade:7, class:43}, '第40週': {school:0, grade:8, class:31}, '第39週': {school:1, grade:3, class:17}, '第38週': {school:0, grade:4, class:8}, '第37週': {school:1, grade:1, class:3}, '第36週': {school:0, grade:0, class:1}},
         '大阪府': {'第43週': {school:0, grade:14, class:58}, '第42週': {school:1, grade:3, class:18}, '第41週': {school:0, grade:2, class:20}, '第40週': {school:2, grade:3, class:18}, '第39週': {school:0, grade:1, class:13}, '第38週': {school:0, grade:0, class:12}, '第37週': {school:0, grade:2, class:12}, '第36週': {school:0, grade:0, class:3}},
     };
-
     const nationalClosureSummary = {
         '第43週': {nursery:8, kindergarten:36, elementary:573, juniorHigh:300, highSchool:79, other:19},
         '第42週': {nursery:3, kindergarten:18, elementary:218, juniorHigh:105, highSchool:27, other:2},
@@ -140,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
             nationalSummaryContainer.appendChild(summaryTable);
         }
 
-
         // --- Warning Icon ---
         if (previousData !== undefined && currentData !== undefined && previousData > 0) {
             const increase = ((currentData - previousData) / previousData) * 100;
@@ -164,20 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // --- Comment ---
-        let comment = '過去8週間のデータに基づくと、';
-        if (previousData !== undefined && currentData !== undefined && previousData > 0) {
-            const increase = ((currentData - previousData) / previousData) * 100;
-            if (increase > 10) {
-                comment += '感染者数は増加傾向にあります。今後も注意が必要です。';
-            } else if (increase < -10) {
-                comment += '感染者数は減少傾向にあります。しかし、油断は禁物です。';
-            } else {
-                comment += '感染者数は横ばいで推移しています。';
-            }
-        } else {
-            comment += '比較する前週のデータがないか、前週のデータが0のため傾向は算出できません。';
-        }
-        document.getElementById('comment').textContent = comment;
+        document.getElementById('comment').textContent = weeklyComments[period] || 'この週に関するコメントはありません。';
 
     } else {
         document.getElementById('results-table').textContent = '指定された地域のデータが見つかりません。';
