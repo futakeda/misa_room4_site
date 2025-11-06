@@ -2,7 +2,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #f4f7f6;
+    background-color: #eef2f5; /* Slightly darker body background */
     color: #333;
     line-height: 1.6;
 }
@@ -13,7 +13,7 @@ body {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow */
 }
 
 h1 {
@@ -65,9 +65,10 @@ h1 {
 .search-conditions {
     margin-bottom: 30px;
     padding: 20px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #d0d0d0; /* Slightly darker border */
     border-radius: 8px;
-    background-color: #fdfdfd;
+    background-color: #f8f8f8; /* Alternating background */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for sections */
 }
 
 .results-grid {
@@ -83,17 +84,33 @@ h1 {
 .comment-section {
     margin-bottom: 20px; /* Reduced margin for grid items */
     padding: 20px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #d0d0d0; /* Slightly darker border */
     border-radius: 8px;
-    background-color: #fdfdfd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for sections */
 }
+
+/* Alternating backgrounds for sections */
+.results-section, .national-summary-section, .comment-section {
+    background-color: #ffffff;
+}
+
+.closure-section, .graph-section {
+    background-color: #f8f8f8;
+}
+
 
 h2 {
     color: #0056b3;
-    border-bottom: 2px solid #007bff;
+    border-bottom: 2px solid #007bff; /* Keep strong underline */
     padding-bottom: 10px;
     margin-bottom: 20px;
     font-size: 1.4em;
+}
+
+h3 {
+    color: #007bff; /* Distinct color for subheadings */
+    margin-bottom: 15px;
+    font-size: 1.2em;
 }
 
 #results-table table,
@@ -106,7 +123,7 @@ h2 {
 #results-table th, #results-table td,
 #closure-table th, #closure-table td,
 #national-summary-table th, #national-summary-table td {
-    border: 1px solid #ddd;
+    border: 1px solid #e0e0e0; /* Lighter border for table cells */
     padding: 10px;
     font-size: 0.95em;
     text-align: left;
@@ -115,12 +132,12 @@ h2 {
 #results-table th,
 #closure-table th,
 #national-summary-table th {
-    background-color: #f2f2f2;
+    background-color: #e9ecef; /* Slightly darker table header */
 }
 
 #warning-icon {
     text-align: center;
-    font-size: 1.2em; /* Made it a bit smaller */
+    font-size: 1.2em;
     margin-top: 15px;
     color: #dc3545;
     font-weight: bold;
@@ -134,10 +151,11 @@ h2 {
     padding: 20px 20px 40px;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
+    background-color: #ffffff; /* Ensure graph background is white */
 }
 
 .bar {
-    width: 35px; /* Made bars narrower */
+    width: 35px;
     background-color: #007bff;
     color: white;
     text-align: center;
@@ -178,15 +196,15 @@ h2 {
 
 /* Modal Styles */
 .modal-overlay {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
     justify-content: center;
     align-items: center;
 }
@@ -246,9 +264,10 @@ h2 {
 .hospitalization-section {
     margin-top: 40px;
     padding: 20px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #d0d0d0;
     border-radius: 8px;
-    background-color: #fdfdfd;
+    background-color: #f8f8f8; /* Alternating background */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for sections */
 }
 
 .hospital-grid {
@@ -264,14 +283,14 @@ h2 {
 }
 
 #admission-status-table th, #admission-status-table td {
-    border: 1px solid #ddd;
+    border: 1px solid #e0e0e0;
     padding: 10px;
     font-size: 0.95em;
     text-align: left;
 }
 
 #admission-status-table th {
-    background-color: #f2f2f2;
+    background-color: #e9ecef;
 }
 
 #pie-chart-container {
@@ -285,6 +304,7 @@ h2 {
     height: 150px;
     border-radius: 50%;
     flex-shrink: 0;
+    background-color: #ffffff; /* Ensure pie chart background is white */
 }
 
 #pie-chart-legend {

@@ -77,19 +77,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const period = params.get('period');
     const threshold = params.get('threshold');
 
+    // Determine the actual week to display based on the 'period' parameter
+    let displayPeriod = period;
+    if (period === 'previous_month') {
+        displayPeriod = '第39週'; // Last week of September
+    }
+
     document.getElementById('region').textContent = region;
-    document.getElementById('period').textContent = `${period} (${weekToDateMap[period] || ''})`;
+    document.getElementById('period').textContent = `${period} (${weekToDateMap[displayPeriod] || ''})`;
     document.getElementById('threshold').textContent = threshold;
 
     const regionData = influenzaData[region];
     if (regionData) {
-        renderInfluenzaTable(regionData, period);
-        renderClosureTable(closureData[region], period);
-        renderNationalSummaryTable(nationalClosureSummary, period);
-        handleAlert(regionData, period, threshold);
+        renderInfluenzaTable(regionData, displayPeriod);
+        renderClosureTable(closureData[region], displayPeriod);
+        renderNationalSummaryTable(nationalClosureSummary, displayPeriod);
+        handleAlert(regionData, displayPeriod, threshold);
         renderBarGraph(regionData);
-        renderHospitalizationData(hospitalizationData, period);
-        renderComment(regionalComments[region], period);
+        renderHospitalizationData(hospitalizationData, displayPeriod);
+        renderComment(regionalComments[region], displayPeriod);
         setupModal();
     } else {
         document.getElementById('results-table').textContent = '指定された地域のデータが見つかりません。';
