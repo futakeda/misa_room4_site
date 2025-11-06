@@ -175,3 +175,76 @@ h2 {
         grid-template-columns: 1fr;
     }
 }
+
+/* Hospitalization Section */
+.hospitalization-section {
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+}
+
+.hospital-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+#admission-status-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#admission-status-table th, #admission-status-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 0.95em;
+    text-align: left;
+}
+
+#admission-status-table th {
+    background-color: #f2f2f2;
+}
+
+#pie-chart-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#pie-chart {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+#pie-chart-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+}
+
+@media (max-width: 900px) {
+    .hospital-grid {
+        grid-template-columns: 1fr;
+    }
+    #pie-chart-container {
+        flex-direction: column;
+    }
+}
